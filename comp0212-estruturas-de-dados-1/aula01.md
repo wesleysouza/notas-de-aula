@@ -28,11 +28,11 @@ Cada uma dessas variáveis ocupam uma quantidade definida de bytes na memória e
 int main(){
     //Declaração de variáveis
     // = é o operador de atribuição
-	int numero = 1;
+    int numero = 1;
     char caractere = 'a';
     float psimples = 1.1;
-	double pdupla = 6.5;
-	printf("Tipo inteiro em bytes %d \n", sizeof(int));
+    double pdupla = 6.5;
+    printf("Tipo inteiro em bytes %d \n", sizeof(int));
     printf("Tipo caractere em bytes %d \n", sizeof(char));
     printf("Tipo float em bytes %d \n", sizeof(float));
 	printf("Tipo float em bytes %d \n", sizeof(double));
@@ -122,11 +122,11 @@ Essa tal ESTRUTURA permite um "empacotamento dos dados" e gerenciamento dos dado
 
 ```cpp
 struct nome_struct{
-		tipo1 nome1; //declarações das variáveis
-		tipo1 nome1; //campos da ESTRUTURAS
-		...
-		tipoN nomeN;
-	};//ponto e vírgula obrigatória!
+	tipo1 nome1; //declarações das variáveis
+	tipo1 nome1; //campos da ESTRUTURAS
+	...
+	tipoN nomeN;
+};//ponto e vírgula obrigatória!
 ```
 
 ### 1.4.1 Declarando as estruturas
