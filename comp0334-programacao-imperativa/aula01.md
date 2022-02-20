@@ -396,20 +396,8 @@ int main(){
 }
 ```
 
-## 1.9 Comando if
-
-O comando if permite executar ou não um conjunto de comandos de acordo com uma condição.
-
-Forma geral:
-
-```cpp
-if(condição){
-	conjunto de comandos
-}
-```
-
 # Referências
-- [Aula 03 Printf](https://youtu.be/07YPObbEpU8)
-
+- [Linguagem C Descomplicada](https://youtube.com/playlist?list=PL8iN9FQ7_jt4DJbeQqv--jpTy-2gTA3Cp)
+- [Programação em C](https://youtube.com/playlist?list=PL0Z-gyL9saMeqFxaevIhHx6vCkaaPwO5t)
 
 
