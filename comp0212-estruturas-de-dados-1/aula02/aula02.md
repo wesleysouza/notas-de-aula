@@ -174,6 +174,245 @@ Matrizes e vetores são estruturas de dados muito úteis fornecidas pelas lingua
 
 Essas limitações podem ser superadas empregando listas ligadas.
 
+## Estrutura
+
+Nesse tipo de estrutura, para cada novo elemento inserido na lista,  alocamos um espaço de memória para armazená-lo. Dessa forma, o espaço total de memória gasto pela estrutura é proporcional ao número de elementos armazenados na lista.
+
+No entanto, não podemos garantir que os elementos armazenados na lista **ocuparão um espaço de memória contíguo**, pois a alocação é feita dinamicamente; portanto, não temos acesso direto aos elementos da lista, somente através do endereço de cada elemento.
+
+Para percorrer todos os elementos da lista, devemos explicitamente **guardar o endereço de cada elemento da ista**, o que é feito armazenando-se, junto com a informação de cada elemento, um ponteiro com o endereço para o próximo elemento da lista.
+
 ![Lista](/aula02/img/02-pessoa-lista.jpg "Lista de pessoas")
 
+Por isso, os elementos da lista estão ligados uns aos outros, encadeados e por conta desta característica a lista é também conhecida como lista encadeada.
+
+A Figura abaixo ilustra o arranjo da memória de uma estrutura de dados lista.
+
 ![Lista](/aula02/img/03-lista-ligada.png "Exemplo de lista encadeada")
+
+**Em suma: A estrutura de dados Lista consiste de uma sequência encadeada de elementos, em geral chamados de nós da lista. Um nó da lista é representado por uma estrutura que contém, conceitualmente, dois campos: a informação armazenada e o ponteiro para o próximo elemento da lista.**
+
+Observações:
+- A lista inteira é representada por um ponteiro para o primeiro elemento (ou nó). 
+- Do primeiro elemento, podemos alcançar o segundo, seguindo o encadeamento, e assim por diante. 
+- O último elemento da lista armazenada, não possui o ponteiro para o próximo elemento mas sim um ponteiro inválido, com valor NULL, e sinaliza, assim, que não existe próximo elemento na lista.
+
+## Características das Listas
+
+- As listas são implementadas através de variáveis dinâmicas que são criadas em tempo de execução com alocação dinâmica de memória;
+
+- Os nós que compõem a lista devem ser tipos abstratos de dados do tipo struct contendo, pelo menos, dois tipos de informação: um campo ou mais campos de tipo simples ou struct para abrigar as informações de cada elemento armazenado na lista e um outro campo do tipo ponteiro para abrigar o endereço do próximo elemento, ou nó, da lista;
+
+- O acesso aos nós componentes da lista é sempre sequencial (para se acessar o 4o elemento, é necessário passar antes pelo 3o, para se acessar o 3o elemento, é necessário passar antes pelo 2o e assim sucessivamente);
+
+- As estruturas de representação devem obrigatoriamente suportar conceitos como ponteiros e alocação dinâmica;
+
+• As Listas Ligadas podem ser simplesmente encadeadas (um único ponteiro por nó) ou duplamente encadeadas (dois ponteiros por nó).
+
+## Vantagens
+
+- Flexibidade no tamanho, podemos crescer e decrescer conforme a necessidade.
+- Maior facilidade nas operações de adição e remoção:
+	- Consistem em basicamente o rearranjo de alguns ponteiros.
+
+## Desvantagens
+
+- Maior complexidade inerente à manipulação dos elementos devido a utilização de ponteiros.
+- Nem todas as linguagens permitem a construção desse tipo de representação de lista ligada.
+
+## Principais Operações
+
+- Inserção de elementos na lista:
+	- Início;
+	- Final;
+	- No "meio" (posição definida utilizando algum critério).
+- Busca;
+- Remoção de elemento em qualquer posição;
+- Impressão da lista;
+
+## Exemplo de Implementação
+
+Implementando uma lista encadeada para armazenar valores inteiros.
+
+### Representação do nó
+
+Implementando a representação de um nó da lista:
+
+```cpp
+struct no {
+	int valor;            // Valor inteiro
+  struct no* prox;       // Ponteiro para o proximo elemento
+};
+
+typedef struct no lista;
+```
+
+Observações: 
+- Devemos observar que estamos criando uma estrutura **auto-referenciada**.
+- O tipo lista representa um nó da lista.
+
+### Função de Criação
+
+A Função de criação apenas retorna o valor NULL, que nesse caso siginifica uma lista vazia:
+
+```cpp
+/* função de criação de lista: retorna lista vazia*/
+lista* cria(void) {
+    return NULL;
+}
+```
+
+### Função de inserção de nó na lista
+
+Após criar a lista podemos inserir elementos. Observe abaixo um exemplo de função para a adição de elementos na lista.
+
+```cpp
+/* função que insere elemento no início da lista*/
+lista* insere(lista* l, int i)
+{
+    lista* novo = (lista*) malloc(sizeof(lista)); //alocação dinâmica do novo nó
+    novo->valor = i;
+    novo->prox = l;
+    return novo;
+}
+```
+
+A figura abaixo ilusta a inserção do nó na lista:
+
+![Lista](/aula02/img/04-lista-insercao.png "Exemplo de lista encadeada")
+
+### Função que verifica se a lista está vazia
+
+É útil verificar se uma determinada lista está vazia em algumas situções. Como sabemos, uma lista vazia sempre retorna NULL, então podemos implementar essa função da forma apresentada abaixo:
+
+```cpp
+/* função vazia: retorno 1 se vazia ou 0 se não vazia*/
+int lista_vazia(lista* l) {
+   if(l == NULL)
+      return 1;  // Retorna 1 que significa verdadeiro, a lista está vazia
+    else
+      return 0; // Retorna 0 que significa falso, a lista não está vazia
+}
+```
+
+### Função que imprime os elementos da lista
+
+Observe abaixo uma possível implementação dessa função:
+
+```cpp
+/* função que imprime elementos da lista*/
+lista* imprime(lista* l) {
+if(!lista_vazia(l)) {
+    lista* aux;
+    for(aux=l; aux != NULL; aux=aux->prox)
+           printf("valor = %d\n",aux->valor);
+}
+else
+   printf("\nTentou imprimir uma lista vazia");
+}
+```
+
+Observe a instrução **aux=aux->prox**, graças a ela estamos percorrendo a lista.
+
+### Função de busca
+
+Essa função é bem últil e semelhante a função anterior de imprimir os elementos, observe-a abaixo:
+
+```cpp
+/* função que busca um elemento na lista*/
+lista* busca(lista* l, int busca) {
+    lista* aux;
+   if(!lista_vazia(l)) {
+       for(aux=l;aux!=NULL;aux=aux->prox) {
+           if(aux->valor == busca) {
+               printf("Valor encontrado.\n");
+               return aux;
+           }
+       }
+      return NULL;
+  }
+  else {
+      printf("\nTentou buscar de uma lista vazia");
+      return NULL; 
+}
+```
+
+### Função para remover um elemento da lista
+
+A função de remoção é a mais complexa até o momento porque devemos tomar o cuidado de não "partir a lista" no momento da remoção.
+
+Casos:
+- 1 - O nó a ser removido é o primeiro da lista:
+	- Temos que garantir que a cabeça da lista será a partir de agora o próximo nó da lista;
+- 2 - O nó a ser removido está no meio da lista:
+	- devemos salvar (temporariamente) o elemento anterior ao que será removido;
+	- apontar o elemento salvo para o seguinte considerando o removido;
+	- liberar o espaço deletando o nó.
+3 - O nó a ser removido é o último:
+	- devemos fazer o anterior a ele apontar para NULL;
+
+Na figura abaixo é possível observar um exemplo da remoção de um nó no meio da lista:
+
+![Lista](/aula02/img/05-lista-remocao.png "Exemplo de lista encadeada")
+
+```cpp
+lista* retira(lista* l, int valor) {
+    lista* ant = NULL;    /* ponteiro para elemento anterior */
+    lista* aux = l;       /* ponteiro para percorrer a lista */
+    if(!lista_vazia(l)) {
+        /* procura elemento na lista, guardando anterior */
+        while(aux!= NULL && aux->valor != valor) {
+            ant = aux;
+            aux = aux->prox;
+        }
+        /* CASO 1: aux == NULL, isso significa que chegou ao final da lista e nao encontrou o elemento. Logo retorna a lista inalterada. */
+
+        if(aux == NULL){
+            return l;
+        }
+
+        /* CASO 2: aux != NULL e contem o elemento a ser excluido da lista. */
+        if(ant == NULL){
+            /* CASO 2.1: O elemento a ser excluído é o primeiro da lista
+
+            O elemento anterior é null porque o elemento excluido é o primeiro e entao agora o primeiro elemento da lista é o  elemento apontado por aux.
+            */
+            l = aux->prox;
+        }else{
+            /* CASO 2.2: O elemento não é o primeiro da lista
+
+            O elemento anterior nao é null porque o elemento aux a ser excluido nao é o primeiro. Portanto o elemento anterior deve apontar para o elemento apontado por aux */
+            ant->prox = aux->prox;
+        }
+        /* libera a memoria utilizada pelo elemento aux que foi excluido */
+        free(aux);
+        /* Retorna a lista atualizada */
+        return l;
+    }else{
+        printf("\nTentou remover de uma lista vazia");
+        /* Retorna a lista inalterada */
+        return l;
+    }
+}
+```
+
+# Exercício
+
+1 - Implemente uma função que tenha como valor de retorno o comprimento de uma lista encadeada, isto é, que calcule o número de nós de uma lista. Esta função deve obedecer ao seguinte protótipo:
+
+```cpp
+– int calcularComprimento(Lista* l);
+```
+
+2 - Implemente uma função que retorno o último valor de uma lista encadeada de inteiros. Essa função deve ter o protótipo:
+
+```cpp
+– int retornarUltimo(Lista* l);
+```
+
+3 - Implemente uma função que receba duas listas encadeadas de valores reais e transfira para o final da primeira os elementos da segunda lista. No final, a primeira lista representará a
+concatenação das duas listas e a segunda lista estará vazia. Esta função deve obedecer ao protótipo:
+
+```cpp
+– void concatenarListas(Lista* l1, Lista* l2);
+```
