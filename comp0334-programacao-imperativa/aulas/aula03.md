@@ -35,8 +35,6 @@ int main()
 ```
 
 ## 3.1.2 Aninhamento de Repetições
-Fonte -> https://youtu.be/LXg3HtMbP8E
-*/
 
 O aninhamento de repetições é o uso dos comandos de repetição (while, for ou do-while) um dentro do outro.
 
@@ -303,3 +301,7 @@ int main(){
 }
 
 Agora vamos resolver um problema: Lendo e imprimindo as notas dos alunos.
+
+# Referências
+- [Linguagem C Descomplicada](https://youtube.com/playlist?list=PL8iN9FQ7_jt4DJbeQqv--jpTy-2gTA3Cp)
+- [Programação em C](https://youtube.com/playlist?list=PL0Z-gyL9saMeqFxaevIhHx6vCkaaPwO5t)
