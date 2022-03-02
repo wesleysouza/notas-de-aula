@@ -299,9 +299,11 @@ int main(){
 	
 	return 0;
 }
+```
 
 Agora vamos resolver um problema: Lendo e imprimindo as notas dos alunos.
 
 # Referências
 - [Linguagem C Descomplicada](https://youtube.com/playlist?list=PL8iN9FQ7_jt4DJbeQqv--jpTy-2gTA3Cp)
+
 - [Programação em C](https://youtube.com/playlist?list=PL0Z-gyL9saMeqFxaevIhHx6vCkaaPwO5t)
