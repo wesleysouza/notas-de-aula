@@ -184,3 +184,169 @@ void reinicializarFila(Fila* f){
     inicializarFila(f);
 }
 ```
+
+## Fila (Implementação Dinâmica)
+
+Alocação dinâmica:
+- Alocaremos e desalocaremos memória para os elementos **sob demanda**;
+- Cada elemento indicará quem é seu **sucessor** (quem é o próximo da fila);
+- Controlaremos os endereços dos elementos que estão no **inicio** e no **fim** da fila;
+- Cada elemento aponta para o seu **sucessor**.
+
+![Lista](/comp0212-estruturas-de-dados-1/aula04/img/fila12.png "Pilha Estática")
+
+### Inserindo o elemento 8:
+
+![Lista](/comp0212-estruturas-de-dados-1/aula04/img/fila13.png "Pilha Estática")
+
+### Excluíndo o elemento 8:
+
+- Ponteiro do inicio aponta para o próximo;
+
+![Lista](/comp0212-estruturas-de-dados-1/aula04/img/fila14.png "Pilha Estática")
+
+### Modelagem
+
+```cpp
+#include <stdio.h>
+#include <stdlib.h>
+
+struct no{
+    int dado;
+    struct no* prox;
+    struct no* fim;
+};
+
+typedef struct no Fila;
+
+}
+```
+### Funções de gerenciamento
+
+- Inicialização da estrutura;
+- Retornar a quantidade de elementos válidos;
+- Exibir os elementos da estrutura;
+- Inserir elementos na estrutura (**no fim**);
+- Excluir elementos da estrutura (**no inicio**);
+- Reinicializar a estrutura.
+
+#### **Inicialização da estrutura**
+
+Para inicializar precisamos:
+- Ajustar os campos **inicio** e **fim** para indicar que não há nenhum elemento válido.
+
+```cpp
+void inicializarFila(Fila *f){
+    f->inicio = NULL;
+    f->fim = NULL;
+}
+```
+
+#### **Retornar a quantidade de elementos válidos**
+
+Semelhate a lista, precisamos percorrer todos os elementos:
+
+```cpp
+int tamanhoFila(Fila *f){
+    Fila *aux = f->inicio;
+    int tam = 0;
+    while(aux != NULL){
+        tam++;
+        aux = aux->prox;
+    }
+    return tam;
+}
+```
+
+#### **Exibir os elementos da estrutura**
+
+A exibição é muito semelhante a contabilização dos elementos:
+
+```cpp
+int tamanhoFila(Fila *f){
+    Fila *aux = f->inicio;
+    while(aux != NULL){
+        printf("%i ", aux->dado);
+        aux = aux->prox;
+    }
+    return tam;
+}
+```
+
+#### **Inserir elementos na estrutura**
+
+O usuário passa como parâmetro um registro a ser inserido no final da fila, precisamos:
+
+- **Alocar** memória para este novo elemento;
+- Colocá-lo **apó o último elemento** da fila;
+- Alterar o valor do campo **fim**. 
+    
+Obs.: É necessário verificar se a fila está vazia pois, se isso for verdade o inicio tem que apontar para esse elemento novo.
+
+**Exemplo:**
+
+Antes da inserção:
+
+![Lista](/comp0212-estruturas-de-dados-1/aula04/img/fila15.png "Pilha Estática")
+
+Alocação de memória para o novo registro:
+
+![Lista](/comp0212-estruturas-de-dados-1/aula04/img/fila16.png "Pilha Estática")
+
+Copiar o dado e ajuste do campo prox do novo elemento para NULL (ele será o último):
+
+![Lista](/comp0212-estruturas-de-dados-1/aula04/img/fila17.png "Pilha Estática")
+
+Ponteiro fim do primeiro elemento aponta para o último:
+
+![Lista](/comp0212-estruturas-de-dados-1/aula04/img/fila18.png "Pilha Estática")
+
+Implementação:
+
+```cpp
+int inserirNaFila(Fila *f, int dado){
+    Fila *novo = (Fila *) malloc(sizeof(Fila));
+    novo->dado = dado;
+    novo->prox = NULL;
+    if(f->inicio==NULL){
+        f->inicio = novo;
+    }else{
+        f->fim->prox = novo;
+    }
+    f->fim = novo;
+    return 1;
+}
+```
+
+#### **Excluir elementos da estrutura**
+
+O usuário solicita a exclusão do elemeno no início da fila. Se a fila não estiver vazia:
+- Iremos copiar esse elemento para um local indicado pelo usuário;
+- Acertar o valor campo **inicio**;
+- eventualmente acertar o campo **fim**.
+
+Obs.: A implementação dessa função fica como exercício.
+
+#### **Reinicializar a estrutura**
+
+Para reinicializar a fila, precisamos **excluir** todos os seus elementos e colocar **NULL** nos campos _inicio_ e _fim_.
+
+Obs.: A implementação dessa função também fica como exercício.
+
+## Exercício
+
+1 - Implementar as funções de exclusão e reinicialização da pilha dinâmica.
+
+2 - Descrever aplicações, vantagens e desvatagens das estrutras de dados abaixo:
+- a) Lista encadeada;
+- b) Lista circular;
+- c) Lista duplamente encadeada;
+- d) Pilha;
+- e) Fila.
+
+3 - Quais as vantagens e desvantagens entre as implementações dinâmicas e estáticas das estruturas de dados?
+
+
+
+
+
