@@ -86,7 +86,7 @@ Na lista circular o último elemento apontará para o primeiro.
 
 Para implementar de forma adequada, precisamos utilizar um nó para controlar a cabela da lista, esse elemento deve ser criado junto da lista.
 
-![Lista](/aula03/img/lista-circular01.png "Pilha Estática")
+![Lista](/comp0212-estruturas-de-dados-1/aula03/img/lista-circular01.png "Pilha Estática")
 
 A implementação é bem semelhante a lista normal, mas obviamente é necessário adicionar a característica adicional.
 
@@ -100,7 +100,7 @@ Para solucionar esses problemas, podemos formar o que chamamos de listas  duplam
 
 Cada elemento tem um ponteiro para o próximo elemento e um ponteiro para o elemento anterior. Desta forma, dado um elemento, podemos acessar ambos os elementos adjacentes: o próximo e o anterior.
 
-![Lista](/aula03/img/lista-dupla01.png "Pilha Estática")
+![Lista](/comp0212-estruturas-de-dados-1/aula03/img/lista-dupla01.png "Pilha Estática")
 
 Se tivermos um ponteiro para o último elemento da lista, podemos percorrer a lista em ordem inversa, bastando acessar continuamente o elemento anterior, até alcançar o primeiro elemento da lista, que não tem elemento anterior (o ponteiro do elemento anterior vale NULL).
 
@@ -144,7 +144,7 @@ Controlaremos a posição do elemento que está no topo da pilha.
 
 Podemos implementar a pilha usando um **array** e um campo extra como na figura abaixo:
 
-![Lista](/aula03/img/pilha01.png "Pilha Estática")
+![Lista](/comp0212-estruturas-de-dados-1/aula03/img/pilha01.png "Pilha Estática")
 
 Observações:
 - Tamanho de **array** pré-definido;
@@ -159,7 +159,7 @@ Exemplo: inserindo o elemento 8:
 Exemplo:
 
 
-![Lista](/aula03/img/pilha02.png "Pilha Estática")
+![Lista](/comp0212-estruturas-de-dados-1/aula03/img/pilha02.png "Pilha Estática")
 
 
 - Como removemos?
@@ -203,7 +203,7 @@ void inicializarPilha(Pilha *p){
 
 Exemplo:
 
-![Lista](/aula03/img/pilha03.png "Pilha Estática")
+![Lista](/comp0212-estruturas-de-dados-1/aula03/img/pilha03.png "Pilha Estática")
 
 **Retornar o número de elementos**
 
@@ -232,7 +232,7 @@ void exibirPilha(PILHA* p){
 
 **PERGUNTA:** Considerando a pilha apresentada na figura abaixo, qual será a saída?
 
-![Lista](/aula03/img/pilha01.png "Pilha Estática")
+![Lista](/comp0212-estruturas-de-dados-1/comp0212-estruturas-de-dados-1/aula03/img/pilha01.png "Pilha Estática")
 
 **Inserir elementos na estrutura (push)**
 
@@ -253,11 +253,11 @@ int inserirElemento(Pilha *p, int dado){
 
 Antes da inserção:
 
-![Lista](/aula03/img/pilha04.png "Pilha Estática")
+![Lista](/comp0212-estruturas-de-dados-1/aula03/img/pilha04.png "Pilha Estática")
 
 Depois da inserção:
 
-![Lista](/aula03/img/pilha05.png "Pilha Estática")
+![Lista](/comp0212-estruturas-de-dados-1/aula03/img/pilha05.png "Pilha Estática")
 
 **Exclusão de um elemento (pop)**
 
@@ -300,13 +300,13 @@ Controlaremos o endereço do elemento que está no topo da pilha.
 
 **Semelhante a cabeça da lista**: Temos um campo para indicar o endereço do elemento que está no topo.
 
-![Lista](/aula03/img/pilha06.png "Pilha Estática")
+![Lista](/comp0212-estruturas-de-dados-1/aula03/img/pilha06.png "Pilha Estática")
 
 **Exemplo de Inserção**
 
 Inserindo o elemento 8:
 
-![Lista](/aula03/img/pilha07.png "Pilha Estática")
+![Lista](/comp0212-estruturas-de-dados-1/aula03/img/pilha07.png "Pilha Estática")
 
 **Exemplo de Exclusão**
 
@@ -401,7 +401,7 @@ void imprimePilha(Pilha *l){
 
 ```
 
-![Lista](/aula03/img/pilha08.png "Pilha Estática")
+![Lista](/comp0212-estruturas-de-dados-1/aula03/img/pilha08.png "Pilha Estática")
 
 ### Inserção de um elemento (push)
 
@@ -411,11 +411,11 @@ O usuário passa como parâmetro um registro a ser inserido na pilha:
 
 Exemplo:
 
-![Lista](/aula03/img/pilha09.png "Pilha Estática")
+![Lista](/comp0212-estruturas-de-dados-1/aula03/img/pilha09.png "Pilha Estática")
 
-![Lista](/aula03/img/pilha10.png "Pilha Estática")
+![Lista](/comp0212-estruturas-de-dados-1/aula03/img/pilha10.png "Pilha Estática")
 
-![Lista](/aula03/img/pilha11.png "Pilha Estática")
+![Lista](/comp0212-estruturas-de-dados-1/aula03/img/pilha11.png "Pilha Estática")
 
 ### Exclusão de um elemento (pop)
 

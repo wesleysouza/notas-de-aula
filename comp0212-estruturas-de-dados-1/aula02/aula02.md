@@ -166,7 +166,7 @@ O código na integra pode ser acessado pelo link (exercicio01.c)[link].
 
 Até o momento, trabalhamos com vetores e matrizes. Na Figura abaixo temos o exemplo de um vetor e uma matriz:
 
-![Lista](/aula02/img/01-vetor-matriz.png "Lista de pessoas")
+![Lista](/comp0212-estruturas-de-dados-1/aula02/img/01-vetor-matriz.png "Lista de pessoas")
 
 Matrizes e vetores são estruturas de dados muito úteis fornecidas pelas linguagens de programação. No entanto, elas tem algunas limitações, como:
 - (1) O seu tamanho tem que ser conhecido no momento da compilação;
@@ -182,13 +182,13 @@ No entanto, não podemos garantir que os elementos armazenados na lista **ocupar
 
 Para percorrer todos os elementos da lista, devemos explicitamente **guardar o endereço de cada elemento da ista**, o que é feito armazenando-se, junto com a informação de cada elemento, um ponteiro com o endereço para o próximo elemento da lista.
 
-![Lista](/aula02/img/02-pessoa-lista.jpg "Lista de pessoas")
+![Lista](/comp0212-estruturas-de-dados-1/aula02/img/02-pessoa-lista.jpg "Lista de pessoas")
 
 Por isso, os elementos da lista estão ligados uns aos outros, encadeados e por conta desta característica a lista é também conhecida como lista encadeada.
 
 A Figura abaixo ilustra o arranjo da memória de uma estrutura de dados lista.
 
-![Lista](/aula02/img/03-lista-ligada.png "Exemplo de lista encadeada")
+![Lista](/comp0212-estruturas-de-dados-1/aula02/img/03-lista-ligada.png "Exemplo de lista encadeada")
 
 **Em suma: A estrutura de dados Lista consiste de uma sequência encadeada de elementos, em geral chamados de nós da lista. Um nó da lista é representado por uma estrutura que contém, conceitualmente, dois campos: a informação armazenada e o ponteiro para o próximo elemento da lista.**
 
@@ -279,7 +279,7 @@ lista* insere(lista* l, int i)
 
 A figura abaixo ilusta a inserção do nó na lista:
 
-![Lista](/aula02/img/04-lista-insercao.png "Exemplo de lista encadeada")
+![Lista](/comp0212-estruturas-de-dados-1/aula02/img/04-lista-insercao.png "Exemplo de lista encadeada")
 
 ### Função que verifica se a lista está vazia
 
@@ -353,7 +353,7 @@ Casos:
 
 Na figura abaixo é possível observar um exemplo da remoção de um nó no meio da lista:
 
-![Lista](/aula02/img/05-lista-remocao.png "Exemplo de lista encadeada")
+![Lista](/comp0212-estruturas-de-dados-1/aula02/img/05-lista-remocao.png "Exemplo de lista encadeada")
 
 ```cpp
 lista* retira(lista* l, int valor) {
