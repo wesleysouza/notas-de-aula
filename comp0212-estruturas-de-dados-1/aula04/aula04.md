@@ -47,7 +47,7 @@ Implementação: Utilizaremos um array de elementos de tamanho predefinido;
 struct fila{
     int a[MAX];
     int inicio;
-    int fim
+    int nroElem;
 };
 
 typedef struct fila Fila;
@@ -69,7 +69,7 @@ Para inicializar precisamos:
 - Acertar o valor do campo **inicio** (índice do primeiro elemento válido).
 
 ```cpp
-void inicializarFile(Fila *f){
+void inicializarFila(Fila *f){
     f->inicio = 0;
     f->nroElem = 0;
 }
@@ -145,7 +145,7 @@ Inserção:
 Implementação:
 
 ```cpp
-int inerirElementoFila(Fila* f, int dado){
+int inserirElementoFila(Fila* f, int dado){
     if(f->nroElem >= MAX){
         return 0;
     }
